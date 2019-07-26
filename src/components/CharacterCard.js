@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react'
-
+import { Link } from "react-router-dom";
 
 export default function CharacterCard (props) {
-  console.log(props.data);
+  //console.log(props.data);
   return (
   //   {dataCard.data.map(d => {
   //     return (
@@ -31,10 +31,10 @@ export default function CharacterCard (props) {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
+            <Link to="/">
               <Icon name='user' />
-              22 Friends
-            </a>
+                {d.episode.length} episodes
+            </Link>
           </Card.Content>
           </Card>
         )

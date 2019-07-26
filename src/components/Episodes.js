@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from 'axios';
+import { Link } from "react-router-dom";
 
 import { Card, Icon } from 'semantic-ui-react'
 
@@ -30,10 +31,10 @@ export default function Episodes() {
                         </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
-                        <a>
+                        <Link to="/characters">
                         <Icon name='user' />
-                        Characters: {d.characters.length}
-                        </a>
+                            {d.characters.length} characters
+                        </Link>
                     </Card.Content>
                     </Card>
                 )

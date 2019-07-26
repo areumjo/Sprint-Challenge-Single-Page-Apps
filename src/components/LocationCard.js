@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
-
+import { Link } from "react-router-dom";
 
 export default function LocationCard (props) {
   // name, type, dimension, residents
-  console.log(props)
+  //console.log(props)
   return (
     <div>
       {props.data.map(d => {
@@ -20,10 +20,10 @@ export default function LocationCard (props) {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
+            <Link to="/characters">
               <Icon name='user' />
-              Residents: {d.residents.length}
-            </a>
+                {d.residents.length} residents
+            </Link>
           </Card.Content>
           </Card>
         )
