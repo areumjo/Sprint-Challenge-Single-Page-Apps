@@ -23,7 +23,9 @@ export default function CharacterList() {
           <div className="character-list" key={d.id}>
             <img src={d.image} alt="Rick-Morty fan page" />
             <h3>{d.name}</h3>
-            <h3>{d.status}</h3>
+            <p>{d.species} {d.status}</p>
+            <p>Location: {d.location.name}</p>
+            <p>Origin: {d.origin.name}</p>
           </div>
         )
       })}
