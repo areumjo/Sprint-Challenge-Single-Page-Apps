@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 
+import LocationCard from "./LocationCard";
 
 export default function LocationsList() {
     const [data, setData] = useState([]);
@@ -12,19 +13,12 @@ export default function LocationsList() {
           const data = response.data.results;
           setData(data)
         })
+        .catch(err => console.log("Location API is down: ", err))
     }, [])
     return (
-        <div>
-            {data.map(d => {
-                return (
-                    <div className="character-list" key={d.id}>
-                        <p>{d.species} {d.dimension}</p>
-                        <p>{d.name}</p>
-                        <p>type: {d.type}</p>
-                        <h3>{d.residents.length}</h3>
-                    </div>
-                )
-            })}
-        </div>
+        <section className='character-list grid-view'>
+          <LocationCard data={data}/>
+        </section>
+        
     )
 }

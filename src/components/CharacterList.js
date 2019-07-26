@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 
+import CharacterCard from './CharacterCard';
+
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [data, setData] = useState([]);
@@ -14,11 +16,12 @@ export default function CharacterList() {
         const data = response.data.results;
         setData(data)
       })
+      .catch(err => console.log("Character API is down: ", err))
   }, [])
   return <section className='character-list grid-view'>
 
       {/* <h2>TODO: `array.map()` over your state here!</h2> */}
-      {data.map(d => {
+      {/* {data.map(d => {
         return (
           <div className="character-list" key={d.id}>
             <img src={d.image} alt="Rick-Morty fan page" />
@@ -28,7 +31,8 @@ export default function CharacterList() {
             <p>Origin: {d.origin.name}</p>
           </div>
         )
-      })}
+      })} */}
+      <CharacterCard data={data}/>
     </section>
 
 }
